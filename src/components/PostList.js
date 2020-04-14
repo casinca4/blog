@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
+import UserHeader from './UserHeader';
 
 class PostList extends React.Component {
 	componentDidMount() {
@@ -17,6 +18,7 @@ class PostList extends React.Component {
 							<h2>{post.title}</h2>
 							<p>{post.body}</p>
 						</div>
+						<UserHeader userId={post.userId} />
 					</div>
 				</div>
 			);
@@ -38,3 +40,5 @@ export default connect(mapStateToProps, { fetchPosts })(PostList);
 // null, da wir kein mapStateToProps haben und to indicate that we don't have a state that we want to get into this component
 
 // state hat property called 'posts' von reducers index.js; that property holds all the data that the reducer has returned
+
+// userId, weil in jsonplaceholder/posts so 
