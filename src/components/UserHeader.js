@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchUser } from '../actions';
+// import { fetchUser } from '../actions';	
 
 class UserHeader extends React.Component {
-	componentDidMount() {
-		this.props.fetchUser(this.props.userId);       
-	}
+	// componentDidMount() {
+	// 	this.props.fetchUser(this.props.userId);       
+	// }
 
 	render() {
     // const user = this.props.users.find(user => user.id === this.props.userId);  
@@ -25,7 +25,7 @@ const mapStateToProps = (state, ownProps) => {
 	return { user: state.users.find(user => user.id === ownProps.userId) };
 };
 
-export default connect(mapStateToProps, { fetchUser })(UserHeader);
+export default connect(mapStateToProps)(UserHeader);
 
 // we need to look at state.users and we need to find the very particular user that we care about
 
@@ -43,3 +43,4 @@ export default connect(mapStateToProps, { fetchUser })(UserHeader);
 
 // this.props.fetchUser(this.props.userId)	--> userId ist prop von PostList
 
+// fetchUser brauchen wir nicht mehr, also in import, component und connect weg, da component was still attempting to fetch its own data whenever it gets rendered on the screen; jetzt nur noch einmal
