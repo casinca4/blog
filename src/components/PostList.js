@@ -9,7 +9,7 @@ class PostList extends React.Component {
 	}
 
 	renderList() {
-		return this.props.posts.map((post) => {
+		return this.props.posts.map(post => {
 			return (
 				<div className="item" key={post.id}>
 					<i className="large middle aligned icon user" />
@@ -31,13 +31,13 @@ class PostList extends React.Component {
 	}
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
 	return { posts: state.posts };
 };
 
 export default connect(mapStateToProps, { fetchPostsAndUser })(PostList);
 
-// null, da wir kein mapStateToProps haben und to indicate that we don't have a state that we want to get into this component
+// Z. 38 stand erst 0 anstatt mapStateToProps; null, da wir kein mapStateToProps haben und to indicate that we don't have a state that we want to get into this component
 
 // state hat property called 'posts' von reducers index.js; that property holds all the data that the reducer has returned
 
